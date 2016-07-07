@@ -1,0 +1,50 @@
+Título: Práctica final de Ampliación de Sistemas Operativos
+Autor: Jesús Cruz Olivera
+
+Ficheros: todos los ficheros tienen un contado asociado, al hacer cat fichero aparecerá primero el
+valor del contador y después si tiene el texto.
+
+Errores: a veces no se monta el sistema de ficheros, volver a probar. Al escribir texto en el 
+fichero el texto a escribir deberá empezar obligatoriamente con un caracter alfabético, no un número
+ni un espacio en blanco.
+
+
+Instrucciones:
+
+	-Compilar
+		# make
+	-Creamos una carpeta
+		# mkdir mnt
+	-Pasamos a super user
+		# sudo su
+	-Cargamos el módulo en el kernel
+		# insmod assoofs.ko
+	-Montamos
+		# mount -t assoofs /dev/loop0 ./mnt
+	-Accedemos
+		# cd mnt
+
+Está implementada la parte opcional:
+
+	-Creación de nuevos contadores: # touch miNuevoContador, por ejemplo. Crearía un archivo con
+	el nombre miNuevoContador y con un contador inicializado a 0.
+
+	-Creación de nuevas carpetas: nada especial que decir aquí
+		# mkdir
+		
+	-Escritura del contenido de los ficheros: podemos escribir tanto el contenido como el contador
+		# touch miNuevoFichero
+		# cat miNuevoFichero
+		0
+		# echo Este es el texto de mi fichero > miNuevoFichero
+		# cat miNuevoFichero
+		1
+		Este es el texto de mi fichero
+		# echo 666 > miNuevoFichero
+		# cat miNuevoFichero
+		666
+		Este es el texto de mi fichero
+	
+	-Lectura del contenido: al usar cat imprime el contenido del fichero, este es un contador
+	y un texto.
+	
